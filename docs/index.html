@@ -140,33 +140,6 @@
         </div>
       </section>
 
-      <section class="section reveal" id="first-launch">
-        <div class="section-head">
-          <h2>First launch on macOS</h2>
-          <p>Free and open source. Ad-hoc signed (no paid Apple Developer ID). macOS warns once. That is expected.</p>
-        </div>
-        <div class="first-launch-grid">
-          <div class="callout-warn">
-            <strong>Gatekeeper: app cannot be opened or developer cannot be verified</strong>
-            <p>This is not malware. The app is not signed with Apple's paid Developer Program ($99/year). I ship it free without that yearly cost.</p>
-            <ul>
-              <li><strong>Easiest:</strong> Applications → right-click <strong>Slack Agent Bridge</strong> → <strong>Open</strong> → <strong>Open</strong> (once only).</li>
-              <li><strong>Or:</strong> System Settings → Privacy &amp; Security → <strong>Open Anyway</strong> after a blocked launch.</li>
-              <li><strong>Terminal:</strong> <code>xattr -dr com.apple.quarantine "/Applications/Slack Agent Bridge.app"</code></li>
-            </ul>
-          </div>
-          <div class="callout-warn callout-keychain">
-            <strong>Keychain: click Always Allow</strong>
-            <p>When macOS asks to access <strong>Slack Safe Storage</strong> (or your login keychain), choose <strong>Always Allow</strong>.</p>
-            <ul>
-              <li><strong>Always Allow</strong> = recommended. Agents and MCP calls work without repeated prompts.</li>
-              <li><strong>Allow once</strong> = may break mid-task when macOS asks again.</li>
-              <li><strong>Deny</strong> = reset in Keychain Access, then reconnect and choose Always Allow.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
       <section class="section reveal" id="how">
         <div class="section-head">
           <h2>How it works</h2>
@@ -600,8 +573,9 @@
     <aside class="sidebar" aria-label="Quick links">
       <div class="sidebar-card">
         <h2>Get the app</h2>
-        <a class="sidebar-btn sidebar-btn-primary" data-download data-download-label href="downloads/SlackAgentBridge-1.0.dmg">Download .dmg</a>
-        <p class="sidebar-meta">Latest release from GitHub. Link updates when you publish a new release.</p>
+        <a class="sidebar-btn sidebar-btn-primary sidebar-download-btn" data-download href="downloads/SlackAgentBridge-1.0.dmg">Download</a>
+        <p class="sidebar-meta sidebar-release-meta" id="sidebar-release-meta">v1.0 · 3.4 MB · macOS 13+</p>
+        <p class="sidebar-meta">Free .dmg · universal Intel and Apple Silicon</p>
         <div class="sidebar-divider"></div>
         <h2>Website</h2>
         <a class="sidebar-btn sidebar-btn-ghost" href="https://gtarafdar.github.io/slack-agent-bridge/">Landing page</a>

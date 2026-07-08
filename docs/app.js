@@ -7,16 +7,20 @@
 
   document.documentElement.classList.add("js");
 
-  function setDownloadLinks(url, label) {
+  function setDownloadLinks(url, fullLabel, sidebarMeta) {
     document.querySelectorAll("[data-download]").forEach(function (el) {
       el.setAttribute("href", url);
-      if (label && el.hasAttribute("data-download-label")) {
-        el.textContent = label;
+      if (fullLabel && el.hasAttribute("data-download-label")) {
+        el.textContent = fullLabel;
       }
     });
     var meta = document.getElementById("download-meta");
-    if (meta && label) {
-      meta.textContent = label;
+    if (meta && sidebarMeta) {
+      meta.textContent = sidebarMeta + " · .dmg from GitHub Releases";
+    }
+    var sidebarRelease = document.getElementById("sidebar-release-meta");
+    if (sidebarRelease && sidebarMeta) {
+      sidebarRelease.textContent = sidebarMeta;
     }
   }
 
@@ -28,7 +32,8 @@
 
   function loadLatestRelease() {
     var fallbackLabel = "Download for macOS";
-    setDownloadLinks(FALLBACK_DMG, fallbackLabel);
+    var fallbackSidebar = "v1.0 · 3.4 MB · macOS 13+";
+    setDownloadLinks(FALLBACK_DMG, fallbackLabel, fallbackSidebar);
 
     fetch("https://api.github.com/repos/" + REPO + "/releases/latest")
       .then(function (res) {
@@ -40,19 +45,16 @@
           return /\.dmg$/i.test(a.name);
         });
         if (dmg && dmg.browser_download_url) {
-          var label =
-            "Download " +
-            (data.tag_name || "latest") +
-            " · " +
-            formatSize(dmg.size) +
-            " · .dmg";
-          setDownloadLinks(dmg.browser_download_url, label);
+          var tag = data.tag_name || "latest";
+          var sidebarMeta = tag + " · " + formatSize(dmg.size) + " · macOS 13+";
+          var fullLabel = "Download " + tag + " · " + formatSize(dmg.size) + " · .dmg";
+          setDownloadLinks(dmg.browser_download_url, fullLabel, sidebarMeta);
         } else if (data.html_url) {
-          setDownloadLinks(data.html_url, "Download from Releases");
+          setDownloadLinks(data.html_url, "Download from Releases", fallbackSidebar);
         }
       })
       .catch(function () {
-        setDownloadLinks(RELEASES_PAGE, "Download from GitHub Releases");
+        setDownloadLinks(RELEASES_PAGE, "Download from GitHub Releases", fallbackSidebar);
       });
   }
 

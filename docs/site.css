@@ -227,6 +227,18 @@ a:focus-visible {
   transform: translateY(-1px);
 }
 
+.sidebar-download-btn {
+  font-size: var(--text-base);
+  padding: var(--space-md) var(--space-lg);
+  white-space: nowrap;
+}
+
+.sidebar-release-meta {
+  font-family: var(--font-mono);
+  color: var(--color-accent);
+  margin-top: calc(-1 * var(--space-xs));
+}
+
 .sidebar-btn-ghost {
   background: transparent;
   color: var(--color-ink);
