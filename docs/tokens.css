@@ -1,0 +1,69 @@
+/* Hallmark · macrostructure: Workbench · genre: modern-minimal · theme: Terminal
+ * tone: technical · anchor hue: phosphor-green
+ * nav: N5 floating pill · footer: Ft5 statement
+ * audience: Mac users connecting Slack to AI agents · use: download + setup · tone: technical
+ */
+
+:root {
+  /* Paper & ink */
+  --color-paper: oklch(14% 0.02 265);
+  --color-paper-2: oklch(18% 0.025 265);
+  --color-paper-3: oklch(22% 0.03 265);
+  --color-ink: oklch(96% 0.01 265);
+  --color-ink-muted: oklch(72% 0.02 265);
+  --color-ink-faint: oklch(55% 0.02 265);
+  --color-rule: oklch(28% 0.02 265);
+  --color-focus: oklch(78% 0.18 145);
+
+  /* Accent */
+  --color-accent: oklch(72% 0.19 145);
+  --color-accent-hover: oklch(78% 0.2 145);
+  --color-accent-muted: oklch(72% 0.19 145 / 0.14);
+  --color-accent-ink: oklch(14% 0.04 145);
+
+  /* Semantic */
+  --color-success: oklch(72% 0.16 155);
+  --color-warning: oklch(78% 0.14 85);
+
+  /* Typography */
+  --font-display: "IBM Plex Sans", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.75rem;
+  --text-display: clamp(2.25rem, 5vw, 3.5rem);
+  --text-display-s: clamp(1.75rem, 4vw, 2.5rem);
+
+  /* Space (4pt scale) */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+  --space-4xl: 6rem;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+  --dur-fast: 140ms;
+  --dur-base: 220ms;
+  --dur-slow: 420ms;
+
+  /* Layout */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+  --max-content: 1120px;
+  --sidebar-width: 240px;
+  --rule: 1px solid var(--color-rule);
+}

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Slack Agent Bridge - Connect Cursor and Claude to Slack on Mac (Free MCP)</title>
+  <meta name="description" content="Free macOS menu-bar app. Connect Cursor, Claude, and Cowork to Slack without admin approval. Local message archive past 90 days, MCP tools, reminders, scheduled messages, digests, and DMs. Runs fully on your Mac.">
+  <meta name="keywords" content="Slack MCP, Cursor Slack, Claude Slack, Slack AI agent, local Slack archive, Slack without admin, macOS Slack automation, Slack Agent Bridge, Model Context Protocol">
+  <meta name="author" content="Gobinda Tarafdar">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://gtarafdar.github.io/slack-agent-bridge/">
+  <meta name="theme-color" content="#0d0f14">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gtarafdar.github.io/slack-agent-bridge/">
+  <meta property="og:title" content="Slack Agent Bridge - Slack MCP for Cursor and Claude">
+  <meta property="og:description" content="Free macOS app. Local Slack archive, MCP server for AI agents, automations, and reminders. No workspace admin approval.">
+  <meta property="og:image" content="https://gtarafdar.github.io/slack-agent-bridge/assets/quick-setup.png">
+  <meta property="og:site_name" content="Slack Agent Bridge">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@Gtarafdarr">
+  <meta name="twitter:title" content="Slack Agent Bridge - Slack MCP for Cursor and Claude">
+  <meta name="twitter:description" content="Connect AI agents to Slack on your Mac. Local archive, MCP tools, no admin approval. Free and open source.">
+  <meta name="twitter:image" content="https://gtarafdar.github.io/slack-agent-bridge/assets/quick-setup.png">
+
+  <link rel="icon" href="assets/app-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/app-icon.png">
+  <link rel="stylesheet" href="site.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Slack Agent Bridge",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "macOS 13+",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Local macOS menu-bar app that connects Cursor, Claude, and Cowork to your Slack desktop session via MCP. Archives messages, runs automations, and posts to Slack with explicit capability gates.",
+    "downloadUrl": "https://github.com/Gtarafdar/slack-agent-bridge/releases/latest",
+    "softwareVersion": "1.0",
+    "author": {
+      "@type": "Person",
+      "name": "Gobinda Tarafdar",
+      "url": "https://gtarafdar.com/bio/"
+    },
+    "license": "https://opensource.org/licenses/MIT"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav-wrap">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-brand" href="#top">
+        <img src="assets/app-icon.png" width="28" height="28" alt="">
+        Slack Agent Bridge
+      </a>
+      <ul class="nav-links">
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <a class="nav-cta" data-download data-download-label href="downloads/SlackAgentBridge-1.0.dmg">Download</a>
+    </nav>
+  </header>
+
+  <div class="shell" id="top">
+    <main class="main" id="main">
+
+      <section class="hero reveal">
+        <p class="eyebrow">macOS menu-bar app · fully local · MCP for AI agents</p>
+        <h1>Your Slack. Your Mac. <em>Your AI agents.</em></h1>
+        <p class="hero-lead">
+          Connect Cursor, Claude, or Cowork to the Slack desktop session already on your Mac.
+          Search archived messages past Slack Free limits, run digests, set reminders, post to your DM,
+          and automate without asking a workspace admin to install anything.
+        </p>
+        <div class="hero-badges">
+          <span class="badge">Universal · Apple Silicon + Intel</span>
+          <span class="badge">macOS 13+</span>
+          <span class="badge">Free &amp; open source</span>
+          <span class="badge">MCP on 127.0.0.1</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" data-download data-download-label href="downloads/SlackAgentBridge-1.0.dmg">Download for macOS</a>
+          <a class="btn btn-secondary" href="https://github.com/Gtarafdar/slack-agent-bridge">View on GitHub</a>
+        </div>
+        <div class="mobile-actions">
+          <a class="sidebar-btn sidebar-btn-ghost" href="https://github.com/Gtarafdar/slack-agent-bridge">Star on GitHub</a>
+          <a class="sidebar-btn sidebar-btn-ghost" href="https://gtarafdar.com/donate">Donate</a>
+        </div>
+      </section>
+
+      <section class="section reveal" id="why">
+        <div class="section-head">
+          <h2>Why this exists</h2>
+          <p>
+            Slack bots and Marketplace apps can summarize channels, but they need admin approval, OAuth installs,
+            and ongoing trust decisions. Most teams cannot casually wire an AI agent into company Slack.
+            You still want automations, reminders, channel summaries, and searchable history inside the tools you already use.
+          </p>
+        </div>
+        <p style="color: var(--color-ink-muted); max-width: 62ch;">
+          Slack Agent Bridge sits on your Mac, reuses your existing Slack desktop login, and exposes a local MCP server
+          so agents can read what you allow, write only what you enable, and keep a private archive that Slack Free
+          will not serve after about 90 days. No IT ticket. No bot user in your workspace directory. Just you, your Mac, and the agent you trust.
+        </p>
+      </section>
+
+      <section class="section reveal" id="how">
+        <div class="section-head">
+          <h2>How it works</h2>
+          <p>Three steps, then your agent can call Slack tools over MCP.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <p class="step-num">01</p>
+            <h3>Connect locally</h3>
+            <p>
+              Install the app and connect your Slack desktop session. Credentials stay in the macOS Keychain on this device.
+              Click <strong>Always Allow</strong> when macOS asks for Keychain access so MCP calls do not stall.
+            </p>
+          </article>
+          <article class="step">
+            <p class="step-num">02</p>
+            <h3>Choose workspaces and channels</h3>
+            <p>
+              Enable workspaces explicitly. Pick which channels to archive and which channels agents may read.
+              Turn on write capabilities only when you need them: DM, reminders, reactions, scheduled messages, and more.
+            </p>
+          </article>
+          <article class="step">
+            <p class="step-num">03</p>
+            <h3>Issue a token for your agent</h3>
+            <p>
+              Create an agent token, paste the <code>mcp.json</code> snippet into Cursor or Claude, and call tools over
+              <code>http://127.0.0.1:47821/mcp</code>. The server never leaves your Mac.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="features">
+        <div class="section-head">
+          <h2>Everything in the box</h2>
+          <p>Built for people who want Slack inside their AI workflow, not another Slack app in the admin console.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>No admin approval</h3>
+            <p>Reuses the local Slack desktop session, same practical approach as Auto AFK Slack. No OAuth app install for the workspace owner.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Local message archive</h3>
+            <p>SQLite + full-text search on your Mac. Keep searching messages after Slack Free stops serving history older than about 90 days.</p>
+          </article>
+          <article class="feature-card">
+            <h3>MCP server for agents</h3>
+            <p>Streamable HTTP MCP on loopback only. Revocable bearer tokens with per-workspace capability flags.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Granular capabilities</h3>
+            <p>Default deny. Separate Archive vs Agent channel lists. Toggle read, post, schedule, pin, edit, delete, status, and reminders per workspace.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Automations</h3>
+            <p>Daily digests, keyword watches, and task drafts from archived traffic. Deliver to self-DM, Slackbot inbox, group DM, or Mac only.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Agent-friendly tools</h3>
+            <p>Search, summarize channels, list mentions, send DM to self, create reminders, schedule messages, reactions, pins, and run local automations.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Quick Setup wizard</h3>
+            <p>Guided checklist walks Connection, Workspaces, Archive, Agent Access, and MCP link test so you know when setup is complete.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Privacy controls</h3>
+            <p>Export or wipe the archive. Revoke tokens. Optional headless CLI is off by default. Audit log for MCP tool calls.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Single-instance and session health</h3>
+            <p>One app instance per Mac. Re-imports Slack session on a timer, after wake-from-sleep, and on auth errors.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="capabilities">
+        <div class="section-head">
+          <h2>All 15 workspace capabilities</h2>
+          <p>Default deny. Turn on only what your agent needs. Both the agent token and workspace must allow each flag.</p>
+        </div>
+        <div class="tools-wrap">
+          <table class="tools-table">
+            <thead>
+              <tr><th>Capability</th><th>Enables</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Read channels</td><td>List channels, history, search, summarize, list mentions</td></tr>
+              <tr><td>Archive channels</td><td>Sync messages into local SQLite archive</td></tr>
+              <tr><td>Post to my DM</td><td><code>send_dm_to_self</code>, automation to notes-to-self</td></tr>
+              <tr><td>Post to DMs (agent-allowed)</td><td><code>send_dm</code> to IMs on the allow-list</td></tr>
+              <tr><td>Post to channels (agent-allowed)</td><td><code>send_channel</code> to allowed channels</td></tr>
+              <tr><td>Post to group DMs (automation inbox)</td><td>Slackbot inbox, <code>create_automation_group_dm</code></td></tr>
+              <tr><td>Schedule messages</td><td><code>schedule_message</code>, list and delete scheduled</td></tr>
+              <tr><td>Set reminders</td><td><code>create_reminder</code> to yourself</td></tr>
+              <tr><td>Set status</td><td><code>set_status</code> with emoji and expiry</td></tr>
+              <tr><td>Add reactions</td><td><code>add_reaction</code></td></tr>
+              <tr><td>Remove reactions</td><td><code>remove_reaction</code></td></tr>
+              <tr><td>Pin messages</td><td><code>pin_message</code></td></tr>
+              <tr><td>Unpin messages</td><td><code>unpin_message</code></td></tr>
+              <tr><td>Edit messages</td><td><code>update_message</code></td></tr>
+              <tr><td>Delete messages</td><td><code>delete_message</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section reveal" id="tour">
+        <div class="section-head">
+          <h2>Inside the app</h2>
+          <p>A guided tour of the settings you will actually use.</p>
+        </div>
+        <div class="workbench">
+          <div class="workbench-row">
+            <div class="workbench-copy">
+              <h3>Quick Setup</h3>
+              <p>Step-by-step wizard checks connection, workspace enablement, channel picks, token creation, and agent link verification.</p>
+            </div>
+            <figure class="workbench-shot"><img src="assets/quick-setup.png" alt="Quick Setup wizard showing completed setup checklist" loading="lazy" width="780" height="560"></figure>
+          </div>
+          <div class="workbench-row reverse">
+            <div class="workbench-copy">
+              <h3>Connection</h3>
+              <p>See MCP status, archive size, and session health. Refresh the local Slack session or disconnect from Keychain anytime.</p>
+            </div>
+            <figure class="workbench-shot"><img src="assets/connection.png" alt="Connection pane showing connected status and MCP server on localhost" loading="lazy" width="780" height="560"></figure>
+          </div>
+          <div class="workbench-row">
+            <div class="workbench-copy">
+              <h3>Workspaces and capabilities</h3>
+              <p>Enable workspaces one by one. Capabilities are explicit toggles so agents cannot surprise-post until you allow it.</p>
+            </div>
+            <figure class="workbench-shot"><img src="assets/capabilities.png" alt="Workspace capabilities toggles for read, archive, post, schedule, and reactions" loading="lazy" width="780" height="560"></figure>
+          </div>
+          <div class="workbench-row reverse">
+            <div class="workbench-copy">
+              <h3>Channel access</h3>
+              <p>Archive stores locally. Agent marks what MCP may read. Configure automation delivery to self-DM, Slackbot inbox, or group DM.</p>
+            </div>
+            <figure class="workbench-shot"><img src="assets/channel-access.png" alt="Channel access list with Archive and Agent checkboxes and automation delivery settings" loading="lazy" width="780" height="560"></figure>
+          </div>
+          <div class="workbench-row">
+            <div class="workbench-copy">
+              <h3>Archive</h3>
+              <p>Pause sync, set interval, apply retention, export, or wipe. Honest about Slack Free: old messages stay searchable here, not in Slack itself.</p>
+            </div>
+            <figure class="workbench-shot"><img src="assets/archive.png" alt="Archive pane with message count, disk usage, and sync controls" loading="lazy" width="780" height="560"></figure>
+          </div>
+          <div class="workbench-row reverse">
+            <div class="workbench-copy">
+              <h3>Agent Access</h3>
+              <p>Create and rotate tokens. Copy the Cursor or Claude <code>mcp.json</code> template. MCP listens on localhost when enabled.</p>
+            </div>
+            <figure class="workbench-shot"><img src="assets/agent-access.png" alt="Agent Access pane with MCP server toggle and token management" loading="lazy" width="780" height="560"></figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="agents">
+        <div class="section-head">
+          <h2>What agents can do in Slack</h2>
+          <p>Real messages from Cursor tests: personal DM and Slackbot automation inbox.</p>
+        </div>
+        <div class="workbench">
+          <div class="workbench-row">
+            <div class="workbench-copy">
+              <h3>Notes to self</h3>
+              <p>Agents post to your personal DM with Mac notifications when delivery lands. Good for quick agent handoffs and test pings.</p>
+            </div>
+            <figure class="workbench-shot"><img src="assets/dm-self.png" alt="Slack personal DM with a test message sent via Slack Agent Bridge from Cursor" loading="lazy" width="600" height="400"></figure>
+          </div>
+          <div class="workbench-row reverse">
+            <div class="workbench-copy">
+              <h3>Slackbot inbox</h3>
+              <p>Automation delivery can land in a starred Slackbot DM with reminders and Mac banners so you notice agent output without hunting threads.</p>
+            </div>
+            <figure class="workbench-shot"><img src="assets/slackbot-inbox.png" alt="Slackbot DM showing automation test message from Slack Agent Bridge" loading="lazy" width="600" height="400"></figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="tools">
+        <div class="section-head">
+          <h2>MCP tools</h2>
+          <p>Every tool is workspace-scoped and capability-gated. Agents only see agent-allowed channels.</p>
+        </div>
+        <div class="tools-wrap">
+          <table class="tools-table">
+            <thead>
+              <tr><th>Tool</th><th>Purpose</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>list_workspaces</code></td><td>Workspaces enabled for this token</td></tr>
+              <tr><td><code>list_agent_channels</code></td><td>Channels on the agent allow-list</td></tr>
+              <tr><td><code>search_messages</code></td><td>Archive FTS + optional live Slack search</td></tr>
+              <tr><td><code>get_channel_history</code></td><td>History for an allowed channel</td></tr>
+              <tr><td><code>get_thread</code></td><td>Thread messages in an allowed channel</td></tr>
+              <tr><td><code>list_mentions</code></td><td>Recent @mentions in allowed channels</td></tr>
+              <tr><td><code>summarize_day</code></td><td>Local digest across allowed channels</td></tr>
+              <tr><td><code>summarize_channel</code></td><td>Channel summary with optional user filter</td></tr>
+              <tr><td><code>get_user</code></td><td>User profile (cached or live)</td></tr>
+              <tr><td><code>create_reminder</code></td><td>Slack reminder to yourself</td></tr>
+              <tr><td><code>send_dm_to_self</code></td><td>Post to your own DM</td></tr>
+              <tr><td><code>send_dm</code></td><td>Post to an allowed DM channel</td></tr>
+              <tr><td><code>send_channel</code></td><td>Post to an allowed channel</td></tr>
+              <tr><td><code>schedule_message</code></td><td>Schedule a DM or channel message</td></tr>
+              <tr><td><code>list_scheduled_messages</code></td><td>List scheduled messages</td></tr>
+              <tr><td><code>delete_scheduled_message</code></td><td>Cancel a scheduled message</td></tr>
+              <tr><td><code>update_message</code> / <code>delete_message</code></td><td>Edit or delete your messages</td></tr>
+              <tr><td><code>add_reaction</code> / <code>remove_reaction</code></td><td>Emoji reactions</td></tr>
+              <tr><td><code>pin_message</code> / <code>unpin_message</code></td><td>Pin management</td></tr>
+              <tr><td><code>set_status</code></td><td>Set your Slack status</td></tr>
+              <tr><td><code>draft_task_list</code></td><td>Extract tasks from recent archive</td></tr>
+              <tr><td><code>create_automation_group_dm</code></td><td>Create Slackbot automation inbox</td></tr>
+              <tr><td><code>list_automations</code> / <code>run_automation</code></td><td>Local digest and keyword rules</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout" style="margin-top: var(--space-xl);">
+          <strong>Cursor / Claude config</strong> (replace the token after you create one in the app):
+          <pre style="margin: var(--space-md) 0 0; overflow-x: auto; font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-ink);">{
+  "mcpServers": {
+    "slack-agent-bridge": {
+      "url": "http://127.0.0.1:47821/mcp",
+      "headers": {
+        "Authorization": "Bearer &lt;your-token&gt;"
+      }
+    }
+  }
+}</pre>
+        </div>
+      </section>
+
+      <section class="section reveal" id="security">
+        <div class="section-head">
+          <h2>Security and privacy</h2>
+          <p>Local by design. Your Slack session never leaves this Mac except to talk to slack.com over HTTPS.</p>
+        </div>
+        <div class="security-grid">
+          <article class="security-card">
+            <h3>Loopback MCP only</h3>
+            <p>The MCP server binds to <code>127.0.0.1</code>. Other apps on your Mac still need a valid bearer token and matching capabilities.</p>
+          </article>
+          <article class="security-card">
+            <h3>Keychain storage</h3>
+            <p>Slack session credentials use macOS Keychain with this-device-only access. Agent tokens are SHA-256 hashed at rest.</p>
+          </article>
+          <article class="security-card">
+            <h3>Default deny</h3>
+            <p>Workspaces, channels, and write capabilities are off until you enable them. <code>list_channels</code> returns only agent-allowed channels.</p>
+          </article>
+          <article class="security-card">
+            <h3>No telemetry</h3>
+            <p>No analytics, no third-party endpoints. Optional verbose logging via <code>SLACKAGENT_DEBUG=1</code> only when you opt in.</p>
+          </article>
+          <article class="security-card">
+            <h3>Hardened storage</h3>
+            <p>Application Support directory mode <code>0700</code>. Archive database <code>0600</code>. Headless CLI send is off by default.</p>
+          </article>
+          <article class="security-card">
+            <h3>Audit trail</h3>
+            <p>MCP tool calls and token lifecycle events append to a local audit log. Export or wipe archive data anytime.</p>
+          </article>
+        </div>
+        <p class="callout">
+          Full threat model and checklist: <a href="https://github.com/Gtarafdar/slack-agent-bridge/blob/main/docs/SECURITY.md">docs/SECURITY.md</a> in the repository.
+          The unofficial <code>xoxc</code> session path is the same family as other local Slack utilities; tokens can rotate, and the app re-imports on a schedule and on auth errors.
+        </p>
+      </section>
+
+      <section class="section reveal" id="install">
+        <div class="section-head">
+          <h2>Requirements and install</h2>
+        </div>
+        <table class="req-table" style="margin-bottom: var(--space-xl);">
+          <tbody>
+            <tr><td>macOS</td><td>13.0 Ventura or later</td></tr>
+            <tr><td>Chip</td><td>Apple Silicon or Intel (universal binary)</td></tr>
+            <tr><td>Slack</td><td>Desktop app installed and signed in</td></tr>
+            <tr><td>Download</td><td id="download-meta">≈ 3.4 MB · .dmg from Releases</td></tr>
+            <tr><td>Price</td><td>Free and open source (MIT)</td></tr>
+          </tbody>
+        </table>
+        <div class="install-block">
+# 1. Download the latest .dmg from GitHub Releases (link updates automatically on this page)
+# 2. Drag Slack Agent Bridge into Applications
+# 3. First launch: right-click the app → Open → Open (ad-hoc signed, Gatekeeper asks once)
+# 4. Click Always Allow on the macOS Keychain prompt for Slack Safe Storage
+# 5. Open settings → connect Slack → enable a workspace → create an agent token → paste mcp.json
+        </div>
+        <p class="callout" style="margin-top: var(--space-xl);">
+          <strong>Notes on distribution:</strong> This app is ad-hoc signed and not notarized (no paid Apple Developer account),
+          which is why the one-time Gatekeeper step is needed. To ship without that prompt, sign with a Developer ID certificate and notarize.
+        </p>
+      </section>
+
+      <section class="section reveal" id="faq">
+        <div class="section-head">
+          <h2>FAQ</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Do I need workspace admin approval?</summary>
+            <div class="faq-body">
+              <p>No. The app reads the Slack desktop session already on your Mac. It does not install a Slack app into the workspace or ask an admin to approve OAuth scopes.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Will old Free-plan messages reappear inside Slack?</summary>
+            <div class="faq-body">
+              <p>No. Slack Free still will not show messages older than about 90 days in the Slack app. This product keeps a local searchable copy for agents, digests, and export. It does not inject history back into Slack.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>How is this different from a Slack bot?</summary>
+            <div class="faq-body">
+              <p>A bot runs in the cloud with workspace-wide permissions and admin setup. Slack Agent Bridge runs on your Mac, scopes access to channels you mark, and exposes tools to your local AI agent over MCP. Better for personal productivity and agent workflows than rolling out another bot.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Can my whole team use one install?</summary>
+            <div class="faq-body">
+              <p>Each person runs their own copy on their own Mac with their own Slack login and their own archive. There is no shared cloud backend.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>What if Slack desktop updates break auth?</summary>
+            <div class="faq-body">
+              <p>Use <strong>Refresh local session</strong> in Connection settings. The app also re-imports on a timer and retries on API auth errors.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Where does the download link come from?</summary>
+            <div class="faq-body">
+              <p>This page fetches the latest <code>.dmg</code> from <a href="https://github.com/Gtarafdar/slack-agent-bridge/releases">GitHub Releases</a> automatically. When you publish a new release asset, the download buttons update without editing the page.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Are you affiliated with Slack?</summary>
+            <div class="faq-body">
+              <p>No. Slack Agent Bridge is an independent, unofficial project by Gobinda Tarafdar. Slack is a trademark of Slack Technologies, LLC.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="section reveal" id="slack-tools">
+        <div class="section-head">
+          <h2>More local Slack apps from the same maker</h2>
+          <p>Gobinda Tarafdar builds macOS Slack utilities that skip admin approval and stay on your Mac.</p>
+        </div>
+        <div class="feature-grid">
+          <a class="workshop-link" href="https://gtarafdar.github.io/auto-afk-slack/" style="text-decoration:none;">
+            <strong>Auto AFK Slack</strong>
+            <span>Lock your Mac, Slack goes AFK. Unlock clears status. No login, no admin.</span>
+          </a>
+          <a class="workshop-link" href="https://gtarafdar.github.io/slack-teammate-local-time/" style="text-decoration:none;">
+            <strong>Slack Teammate Time</strong>
+            <span>Teammate local times inline in Slack desktop. No Marketplace app.</span>
+          </a>
+          <article class="feature-card" style="border-color: var(--color-accent);">
+            <h3>Slack Agent Bridge</h3>
+            <p>This app: MCP for Cursor and Claude, local archive past Slack Free limits, automations, reminders, and capability-gated writes.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="about">
+        <div class="section-head">
+          <h2>About the maker</h2>
+        </div>
+        <div class="maker">
+          <img class="maker-photo" src="https://raw.githubusercontent.com/Gtarafdar/auto-afk-slack/main/docs/assets/gobinda.png" width="140" height="140" alt="Gobinda Tarafdar">
+          <div>
+            <h3>Gobinda Tarafdar</h3>
+            <p class="maker-tagline">WordPress product marketer · stubborn problem-solver · lifelong Harry Potter devotee</p>
+            <p>
+              By day I am the Product Marketing Specialist at
+              <a href="https://wpbakery.com/">WPBakery</a>, the page builder that quietly powers a sizeable corner of the WordPress universe.
+              Before that, I helped a single plugin cross 400,000+ active users through positioning, user research, and a relentless focus on what actually moves the needle.
+            </p>
+            <p>
+              When the day-job owl flies home, I tinker on my own little workshop of spells.
+              Slack Agent Bridge is one of them: a bridge between the Slack you already have and the AI agents you already use.
+            </p>
+          </div>
+        </div>
+        <div class="workshop-grid">
+          <a class="workshop-link" href="https://wpbakery.com/"><strong>WPBakery</strong><span>The page builder I do product marketing for</span></a>
+          <a class="workshop-link" href="https://thedocscriber.com/"><strong>Docscriber</strong><span>Documentation, conjured</span></a>
+          <a class="workshop-link" href="https://therecaller.com/"><strong>TheRecaller</strong><span>A memory charm for what you forget online</span></a>
+          <a class="workshop-link" href="https://theeditra.com/"><strong>TheEditra</strong><span>A video-editing cauldron of my own brewing</span></a>
+          <a class="workshop-link" href="https://thequillpress.com/"><strong>The Quill Press</strong><span>Tech news styled after the Daily Prophet</span></a>
+          <a class="workshop-link" href="https://costlas.com/"><strong>Costlas</strong><span>Cost of living for 140 countries and 1,377 cities</span></a>
+          <a class="workshop-link" href="https://gtarafdar.github.io/auto-afk-slack/"><strong>Auto AFK Slack</strong><span>Lock your Mac, Slack goes AFK</span></a>
+          <a class="workshop-link" href="https://gtarafdar.github.io/slack-teammate-local-time/"><strong>Slack Teammate Time</strong><span>Local times inline in Slack</span></a>
+          <a class="workshop-link" href="https://gtarafdar.github.io/FinderFlow/"><strong>FinderFlow</strong><span>A Mac file manager Finder should have shipped</span></a>
+        </div>
+      </section>
+
+      <section class="cta-strip reveal">
+        <h2>If it saves you a Slack admin ticket, star the repo</h2>
+        <p>Slack Agent Bridge is free and open source. A GitHub star helps others find it. A small donation keeps the workshop lit.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" data-download data-download-label href="downloads/SlackAgentBridge-1.0.dmg">Download for macOS</a>
+          <a class="btn btn-secondary" href="https://github.com/Gtarafdar/slack-agent-bridge">Star on GitHub</a>
+          <a class="btn btn-secondary" href="https://gtarafdar.com/donate">Donate</a>
+        </div>
+      </section>
+
+    </main>
+
+    <aside class="sidebar" aria-label="Quick links">
+      <div class="sidebar-card">
+        <h2>Get the app</h2>
+        <a class="sidebar-btn sidebar-btn-primary" data-download data-download-label href="downloads/SlackAgentBridge-1.0.dmg">Download .dmg</a>
+        <p class="sidebar-meta">Latest release from GitHub. Link updates when you publish a new release.</p>
+        <div class="sidebar-divider"></div>
+        <h2>GitHub</h2>
+        <a class="sidebar-btn sidebar-btn-ghost" href="https://github.com/Gtarafdar/slack-agent-bridge">View repository</a>
+        <a class="sidebar-btn sidebar-btn-ghost" href="https://github.com/Gtarafdar/slack-agent-bridge/releases">All releases</a>
+        <a class="sidebar-btn sidebar-btn-ghost" href="https://github.com/Gtarafdar/slack-agent-bridge/stargazers">Star this project</a>
+        <div class="sidebar-divider"></div>
+        <h2>Support</h2>
+        <a class="sidebar-btn sidebar-btn-ghost" href="https://gtarafdar.com/donate">Donate</a>
+        <div class="sidebar-social">
+          <a href="https://x.com/Gtarafdarr">X / Twitter</a>
+          <a href="https://www.linkedin.com/in/gobinda-tarafdar/">LinkedIn</a>
+        </div>
+        <p class="sidebar-meta">MIT · runs fully on your Mac · talks only to slack.com</p>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#security">Security</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://github.com/Gtarafdar/slack-agent-bridge">GitHub</a>
+      <a href="https://gtarafdar.com/donate">Donate</a>
+      <a href="https://x.com/Gtarafdarr">X</a>
+      <a href="https://www.linkedin.com/in/gobinda-tarafdar/">LinkedIn</a>
+    </nav>
+    <p>Slack Agent Bridge · MIT © 2026 Gobinda Tarafdar</p>
+    <p>Slack is a trademark of Slack Technologies, LLC. This project is independent and not affiliated with Slack.</p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
