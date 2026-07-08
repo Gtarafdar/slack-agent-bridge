@@ -58,6 +58,7 @@
         Slack Agent Bridge
       </a>
       <ul class="nav-links">
+        <li><a href="#first-launch">First launch</a></li>
         <li><a href="#how">How it works</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#capabilities">Capabilities</a></li>
@@ -110,6 +111,60 @@
           so agents can read what you allow, write only what you enable, and keep a private archive that Slack Free
           will not serve after about 90 days. No IT ticket. No bot user in your workspace directory. Just you, your Mac, and the agent you trust.
         </p>
+      </section>
+
+      <section class="section reveal" id="first-launch">
+        <div class="section-head">
+          <h2>First launch on macOS</h2>
+          <p>Free and open source. Ad-hoc signed (no paid Apple Developer ID). macOS warns once. That is expected.</p>
+        </div>
+        <div class="first-launch-grid">
+          <div class="callout-warn">
+            <strong>Gatekeeper: app cannot be opened or developer cannot be verified</strong>
+            <p>This is not malware. The app is not signed with Apple's paid Developer Program ($99/year). I ship it free without that yearly cost.</p>
+            <ul>
+              <li><strong>Easiest:</strong> Applications → right-click <strong>Slack Agent Bridge</strong> → <strong>Open</strong> → <strong>Open</strong> (once only).</li>
+              <li><strong>Or:</strong> System Settings → Privacy &amp; Security → <strong>Open Anyway</strong> after a blocked launch.</li>
+              <li><strong>Terminal:</strong> <code>xattr -dr com.apple.quarantine "/Applications/Slack Agent Bridge.app"</code></li>
+            </ul>
+          </div>
+          <div class="callout-warn callout-keychain">
+            <strong>Keychain: click Always Allow</strong>
+            <p>When macOS asks to access <strong>Slack Safe Storage</strong> (or your login keychain), choose <strong>Always Allow</strong>.</p>
+            <ul>
+              <li><strong>Always Allow</strong> = recommended. Agents and MCP calls work without repeated prompts.</li>
+              <li><strong>Allow once</strong> = may break mid-task when macOS asks again.</li>
+              <li><strong>Deny</strong> = reset in Keychain Access, then reconnect and choose Always Allow.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="first-launch">
+        <div class="section-head">
+          <h2>First launch on macOS</h2>
+          <p>Free and open source. Ad-hoc signed (no paid Apple Developer ID). macOS warns once. That is expected.</p>
+        </div>
+        <div class="first-launch-grid">
+          <div class="callout-warn">
+            <strong>Gatekeeper: app cannot be opened or developer cannot be verified</strong>
+            <p>This is not malware. The app is not signed with Apple's paid Developer Program ($99/year). I ship it free without that yearly cost.</p>
+            <ul>
+              <li><strong>Easiest:</strong> Applications → right-click <strong>Slack Agent Bridge</strong> → <strong>Open</strong> → <strong>Open</strong> (once only).</li>
+              <li><strong>Or:</strong> System Settings → Privacy &amp; Security → <strong>Open Anyway</strong> after a blocked launch.</li>
+              <li><strong>Terminal:</strong> <code>xattr -dr com.apple.quarantine "/Applications/Slack Agent Bridge.app"</code></li>
+            </ul>
+          </div>
+          <div class="callout-warn callout-keychain">
+            <strong>Keychain: click Always Allow</strong>
+            <p>When macOS asks to access <strong>Slack Safe Storage</strong> (or your login keychain), choose <strong>Always Allow</strong>.</p>
+            <ul>
+              <li><strong>Always Allow</strong> = recommended. Agents and MCP calls work without repeated prompts.</li>
+              <li><strong>Allow once</strong> = may break mid-task when macOS asks again.</li>
+              <li><strong>Deny</strong> = reset in Keychain Access, then reconnect and choose Always Allow.</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       <section class="section reveal" id="how">
@@ -400,13 +455,15 @@
         <div class="install-block">
 # 1. Download the latest .dmg from GitHub Releases (link updates automatically on this page)
 # 2. Drag Slack Agent Bridge into Applications
-# 3. First launch: right-click the app → Open → Open (ad-hoc signed, Gatekeeper asks once)
-# 4. Click Always Allow on the macOS Keychain prompt for Slack Safe Storage
-# 5. Open settings → connect Slack → enable a workspace → create an agent token → paste mcp.json
+# 3. FIRST LAUNCH ONLY: right-click Slack Agent Bridge → Open → Open
+#    (macOS blocks ad-hoc apps; this is normal for free open-source Mac software)
+# 4. KEYCHAIN: click Always Allow when asked for Slack Safe Storage
+#    (not "Allow once" — agents will fail if macOS keeps re-prompting)
+# 5. Open settings → connect Slack → enable a workspace → create agent token → paste mcp.json
         </div>
         <p class="callout" style="margin-top: var(--space-xl);">
-          <strong>Notes on distribution:</strong> This app is ad-hoc signed and not notarized (no paid Apple Developer account),
-          which is why the one-time Gatekeeper step is needed. To ship without that prompt, sign with a Developer ID certificate and notarize.
+          <strong>Notes on distribution:</strong> Ad-hoc signed, not notarized. No paid Apple Developer account, so no yearly $99 fee passed on to you.
+          See <a href="#first-launch">First launch</a> and <a href="#faq">FAQ</a> for Gatekeeper and Keychain steps.
         </p>
       </section>
 
@@ -415,6 +472,20 @@
           <h2>FAQ</h2>
         </div>
         <div class="faq-list">
+          <details class="faq-item">
+            <summary>macOS says the developer cannot be verified. Is it safe?</summary>
+            <div class="faq-body">
+              <p>Yes, if you downloaded from <a href="https://github.com/Gtarafdar/slack-agent-bridge/releases">GitHub Releases</a>. The app is free and open source and is <strong>ad-hoc signed</strong>, not notarized with a paid Apple Developer ID ($99/year). macOS warns on first open for apps like this.</p>
+              <p><strong>Fix:</strong> Right-click the app in Applications → <strong>Open</strong> → <strong>Open</strong>. Or use System Settings → Privacy &amp; Security → <strong>Open Anyway</strong>. Or run: <code>xattr -dr com.apple.quarantine "/Applications/Slack Agent Bridge.app"</code></p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Keychain keeps asking for a password. What should I click?</summary>
+            <div class="faq-body">
+              <p>Click <strong>Always Allow</strong> when macOS asks to access <strong>Slack Safe Storage</strong> or your login keychain. That lets the app read your local Slack session without prompting on every agent call.</p>
+              <p>If you clicked <strong>Deny</strong>: open Keychain Access, search for Slack Safe Storage, fix Access Control for Slack Agent Bridge, quit and reopen the app, then choose Always Allow.</p>
+            </div>
+          </details>
           <details class="faq-item">
             <summary>Do I need workspace admin approval?</summary>
             <div class="faq-body">
@@ -531,6 +602,10 @@
         <h2>Get the app</h2>
         <a class="sidebar-btn sidebar-btn-primary" data-download data-download-label href="downloads/SlackAgentBridge-1.0.dmg">Download .dmg</a>
         <p class="sidebar-meta">Latest release from GitHub. Link updates when you publish a new release.</p>
+        <div class="sidebar-divider"></div>
+        <h2>Website</h2>
+        <a class="sidebar-btn sidebar-btn-ghost" href="https://gtarafdar.github.io/slack-agent-bridge/">Landing page</a>
+        <a class="sidebar-btn sidebar-btn-ghost" href="#first-launch">First launch help</a>
         <div class="sidebar-divider"></div>
         <h2>GitHub</h2>
         <a class="sidebar-btn sidebar-btn-ghost" href="https://github.com/Gtarafdar/slack-agent-bridge">View repository</a>

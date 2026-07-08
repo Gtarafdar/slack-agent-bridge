@@ -1,6 +1,10 @@
 # Slack Agent Bridge
 
 <p align="center">
+  <img src="docs/assets/app-icon.png" width="128" height="128" alt="Slack Agent Bridge app icon">
+</p>
+
+<p align="center">
   <strong>Local macOS menu-bar app that connects Cursor, Claude, and Cowork to your Slack session.</strong><br>
   Archive messages beyond Slack Free limits · MCP tools for AI agents · Automations · No workspace admin approval.
 </p>
@@ -57,16 +61,98 @@ The landing page at [gtarafdar.github.io/slack-agent-bridge](https://gtarafdar.g
 | Size | ≈ 3.4 MB `.dmg` |
 | Price | **Free and open source** |
 
-### First launch (ad-hoc signed)
+---
 
-1. Download and open the `.dmg`, drag **Slack Agent Bridge** into Applications.
-2. **Right-click → Open → Open** the first time (Gatekeeper for ad-hoc builds).
-3. Click **Always Allow** when macOS asks for Keychain access to Slack Safe Storage.
-4. Open settings, connect Slack, enable a workspace, create an agent token.
+## Screenshots
+
+<p align="center">
+  <img src="docs/assets/quick-setup.png" width="720" alt="Quick Setup wizard with completed checklist">
+</p>
+<p align="center"><em>Quick Setup wizard walks through connection, workspaces, channels, and agent token.</em></p>
+
+<table>
+<tr>
+<td width="50%"><img src="docs/assets/connection.png" alt="Connection pane"><br><em>Connection and MCP status</em></td>
+<td width="50%"><img src="docs/assets/agent-access.png" alt="Agent Access pane"><br><em>Agent tokens and mcp.json for Cursor</em></td>
+</tr>
+<tr>
+<td><img src="docs/assets/capabilities.png" alt="Workspace capabilities"><br><em>15 capability toggles per workspace</em></td>
+<td><img src="docs/assets/channel-access.png" alt="Channel access and automation delivery"><br><em>Archive vs Agent channels</em></td>
+</tr>
+<tr>
+<td><img src="docs/assets/archive.png" alt="Archive pane"><br><em>Local archive sync and retention</em></td>
+<td><img src="docs/assets/automations.png" alt="Automations pane"><br><em>Digests and keyword watches</em></td>
+</tr>
+<tr>
+<td><img src="docs/assets/dm-self.png" alt="Personal DM test message"><br><em>Agent post to your notes-to-self DM</em></td>
+<td><img src="docs/assets/slackbot-inbox.png" alt="Slackbot automation inbox"><br><em>Automation delivery via Slackbot DM</em></td>
+</tr>
+</table>
+
+More screenshots and a guided tour: **[gtarafdar.github.io/slack-agent-bridge](https://gtarafdar.github.io/slack-agent-bridge/)**
+
+---
+
+## First launch on macOS (important)
+
+Slack Agent Bridge is **free and open source**. It is **ad-hoc signed**, not notarized with a paid Apple Developer ID ($99/year). macOS will warn you once. That is normal. The app is safe to open if you downloaded it from this repository.
+
+### If macOS says the app "cannot be opened" or the developer cannot be verified
+
+This is **not malware**. It means the app is not signed with Apple's paid Developer Program certificate. You can open it safely:
+
+**Option A (easiest):**
+
+1. Open the `.dmg` and drag **Slack Agent Bridge** into **Applications**.
+2. In Finder, go to **Applications**.
+3. **Right-click** (or Control-click) **Slack Agent Bridge** → **Open**.
+4. Click **Open** in the dialog. You only need to do this **once**.
+
+**Option B (if Option A does not appear):**
+
+1. Try to open the app normally (macOS blocks it).
+2. Open **System Settings → Privacy & Security**.
+3. Scroll down. You should see a message about Slack Agent Bridge being blocked.
+4. Click **Open Anyway**, then confirm **Open**.
+
+**Option C (Terminal, one line):**
+
+```bash
+xattr -dr com.apple.quarantine "/Applications/Slack Agent Bridge.app"
+```
+
+Then double-click the app as usual.
+
+### Keychain prompt: click **Always Allow**
+
+When you connect Slack, macOS may ask for Keychain access (often labeled **Slack Safe Storage** or a login keychain password).
+
+| Button | What happens |
+|--------|----------------|
+| **Always Allow** | Recommended. The app can read your local Slack session without asking again on every MCP call. |
+| **Allow** (once) | Works briefly, but macOS may prompt again and agents can fail mid-task. |
+| **Deny** | Connection fails. You must reset access (below). |
+
+**If you clicked Deny by mistake:**
+
+1. Open **Keychain Access** (Spotlight → "Keychain Access").
+2. Search for **Slack Safe Storage** or **slackagentbridge**.
+3. Delete the denied entry, or right-click → **Get Info** → **Access Control** → allow **Slack Agent Bridge**.
+4. Quit and reopen the app, then click **Always Allow**.
+
+The in-app **Connection**, **Agent Access**, and **Privacy** panes also remind you to use **Always Allow**.
+
+### Quick install checklist
+
+1. Download the `.dmg` from [Releases](https://github.com/Gtarafdar/slack-agent-bridge/releases/latest).
+2. Drag the app into **Applications**.
+3. **Right-click → Open → Open** (first launch only).
+4. Click **Always Allow** on the Keychain prompt.
+5. Connect Slack → enable a workspace → create an agent token → paste `mcp.json` into Cursor or Claude.
 
 ### Notes on distribution
 
-This app is **ad-hoc signed** and **not notarized** (no paid Apple Developer account), which is why the one-time Gatekeeper step is needed. To ship without that prompt, sign with a Developer ID certificate and notarize.
+This app is **ad-hoc signed** and **not notarized** (no paid Apple Developer account), which is why the one-time Gatekeeper step above is needed. I ship it this way so the project stays **free** without a yearly Apple fee. To ship without that prompt, a maintainer would need a Developer ID certificate and notarization.
 
 ---
 
